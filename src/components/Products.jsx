@@ -1,11 +1,14 @@
+import productData from "../productData";
 import ProductItem from "./ProductItem";
 
-const Products = () => {
+const Products = (props) => {
+    
     return (
         <div className="grid grid-cols-3 gap-10 mb-8">
-            <ProductItem />
-            <ProductItem />
-            <ProductItem />
+            {productData.map((product) => 
+                <ProductItem product={product} key={product.id} cart={props.cart} setCart={props.setCart}/>
+            )}
+
         </div>
     )
 }
